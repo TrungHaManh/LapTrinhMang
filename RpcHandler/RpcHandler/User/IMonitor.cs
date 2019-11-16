@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace RpcHandler.User
 {
+    /// <summary>
+    /// Interface chức năng hệ thống.
+    /// Module client & server phải thực thi interface này để thực hiện gọi RPC
+    /// </summary>
     public interface IMonitor
     {
         void SetUSB(bool enable);
