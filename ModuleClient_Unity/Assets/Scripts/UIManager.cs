@@ -5,6 +5,13 @@ using UnityEngine.UI;
 using RpcHandler.Message;
 public class UIManager : MonoBehaviour
 {
+    /*
+     * Giải thích các phương thức trong unity
+     * Phương thức Awake(), Start(): là các phương thức được tự động gọi đầu tiên khi đối tượng được tạo, Awake gọi trước Start.
+     * Phương thức Update(): được tự động gọi lại sau mỗi frame
+     * Các phương thức OnClick là các sự kiện click chuột
+     */
+    
     public GameObject IpViewContent;
     public GameObject AboutContent;
     
