@@ -1,0 +1,6 @@
+E:\Lam\c#\RpcHandler\RpcHandler\obj\Debug\RpcHandler.csprojAssemblyReference.cache
+E:\Lam\c#\RpcHandler\RpcHandler\obj\Debug\RpcHandler.csproj.CoreCompileInputs.cache
+E:\Lam\c#\RpcHandler\RpcHandler\bin\Debug\RpcHandler.dll
+E:\Lam\c#\RpcHandler\RpcHandler\bin\Debug\RpcHandler.pdb
+E:\Lam\c#\RpcHandler\RpcHandler\obj\Debug\RpcHandler.dll
+E:\Lam\c#\RpcHandler\RpcHandler\obj\Debug\RpcHandler.pdb
