@@ -1,0 +1,11 @@
+E:\Lam\c#\TestXongXoa\TestXongXoa\bin\Debug\TestXongXoa.exe.config
+E:\Lam\c#\TestXongXoa\TestXongXoa\bin\Debug\TestXongXoa.exe
+E:\Lam\c#\TestXongXoa\TestXongXoa\bin\Debug\TestXongXoa.pdb
+E:\Lam\c#\TestXongXoa\TestXongXoa\obj\Debug\TestXongXoa.csprojAssemblyReference.cache
+E:\Lam\c#\TestXongXoa\TestXongXoa\obj\Debug\TestXongXoa.csproj.CoreCompileInputs.cache
+E:\Lam\c#\TestXongXoa\TestXongXoa\obj\Debug\TestXongXoa.csproj.CopyComplete
+E:\Lam\c#\TestXongXoa\TestXongXoa\obj\Debug\TestXongXoa.exe
+E:\Lam\c#\TestXongXoa\TestXongXoa\obj\Debug\TestXongXoa.pdb
+E:\Lam\c#\TestXongXoa\TestXongXoa\bin\Debug\RpcHandler.dll
+E:\Lam\c#\TestXongXoa\TestXongXoa\bin\Debug\RpcHandler.pdb
+E:\Lam\c#\TestXongXoa\TestXongXoa\bin\Debug\Tulpep.NotificationWindow.dll
