@@ -1,8 +1,8 @@
 # LapTrinhMang
 
-Bài tập lớn - Mô tả bài toán
-Nhóm lớp: 7
-Hà Mạnh Trung, Đoàn Duy Tùng, Cao Minh Chúng
+Bài tập lớn - Mô tả bài toán 
+- Nhóm lớp: 7 
+- Hà Mạnh Trung, Đoàn Duy Tùng, Cao Minh Chúng
 
 
 I.	Chức năng
