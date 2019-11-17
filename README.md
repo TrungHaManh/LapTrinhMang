@@ -55,7 +55,7 @@ III. 	Cài đặt
 		- Dữ liệu gửi đi là 1 đối tượng( xem class Request).
 		- Dữ liệu phản hồi cũng là đối tượng ( xem class Response).
 		- Class ServerSocket, ClientSocket là các lớp quản lý kết nối mạng
-		- Class MiniJSON: Chuyển dữ liệu thành mỗi chuỗi json để gửi đi
+		- Class MiniJSON(Mã nguồn mở): Chuyển dữ liệu thành mỗi chuỗi json để gửi đi.
 		
 	2.	ModuleServer
 		- Chạy trên win console
