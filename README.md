@@ -54,18 +54,14 @@ II.	Môi trường phát triển
 		+ Điều này giúp cho “máy bị giám sát” có thể tạo 1 đối tượng và gọi tới phương thức từ các thông tin (là 1 chuỗi) mà “máy giám sát” yêu cầu.
 
 III. 	Cài đặt
+
 	1.	RpcHandler
-  
 		- Đây là thư viện Rpc được compile ra file .dll
 		- Được cài đặt trên 2 module client và server (2 môi trường cài đặt khác nhau)
-    
 	a. 	Môi trường cài đặt
-  
 		- Visual studio 2019
 		- Project template: Class library (.Net framework)
-    
 	b.	Cấu trúc
-  
 		- Được cài đặt giống như kỹ thuật RPC/RMI
 		- Gồm bộ đóng/mở gói:
 		+ Class ClientExport (ClientStub): đóng gói dữ liệu gửi đi
@@ -74,19 +70,14 @@ III. 	Cài đặt
 		- Dữ liệu phản hồi cũng là đối tượng ( xem class Response).
 		- Class ServerSocket, ClientSocket là các lớp quản lý kết nối mạng
 		- Class MiniJSON: Chuyển dữ liệu thành mỗi chuỗi json để gửi đi
-    
+		
 	2.	ModuleServer
-  
 		- Chạy trên win console
-		- Sử dụng như server trên máy tính bị giám sát
-    
+		- Sử dụng như server trên máy tính bị giám sát   
 	a.	Môi trường cài đặt
-  
 		- Visual studio 2019
 		- Project template: Console app(.Net framework)
-    
 	b.	Cấu trúc
-  
 		- Gồm các lớp thực hiện các chức năng chính:
 		+ class UsbHandler: đóng ngắt Usb
 		+ class ClipBoardHandler: đóng ngắt clipboard,...
