@@ -72,6 +72,16 @@ III. 	Cài đặt
 			+ Để khởi tạo ServerImport chúng ta cần truyền vào 1 namespace (dưới dạng chuỗi) là nơi chứa của lớp thực thi Interface IMonitor(Xem ModuleServer/TestXongXoa/Program.Main() ).
 			+ Việc khởi tạo namespace này sẽ được dùng trong kỹ thuật Reflection (Xem RpcHandler/Server/ServerImport.Run()).
 		- Sau đó cần khởi tạo 1 ServerSocket và tiến hành lắng nghe kết nối từ client.
+		- Nhận yêu cầu:
+			+ Khi yêu cầu được nhận dưới dạng 1 đối tượng Request và được xử trong RpcHandler/RpcHandler/Server/ServerImport.Run
+		- Xử lý yêu cầu:
+			+ USB: usb sẽ được ngắt/mở bằng cách set giá trị của Key trong RegistryKey (Xem ModuleServer/TestXongXoa/UsbHandler.cs).
+			+ Clipboard: để xóa clipboard chúng ta sẽ dùng 1 vòng lặp để xóa( Xem ModuleServer/TestXongXoa/ClipBoardHandler.cs)
+			+ Lấy danh sách ứng dụng đang chạy: Xem ModuleServer/TestXongXoa/TestServer.GetAllCurrentProcess
+			+ Tắt 1 ứng dụng bất kỳ dựa vào id: Xem ModuleServer/TestXongXoa/TestServer.DisableProcessWithID (id do ModuleClient_Unity gửi sang dưới dạng 1 tham số cho cuộc gọi RPC - id này nhận được từ quá trình GetAllCurrentProcess ở trên).
+			+ ShareFile: Tắt/mở discovery (Xem ModuleServer/TestXongXoa/TestServer.SetFileShare)
+			+ Chat: Phương thức này hiển thị thông điệp nhận được dưới dạng 1 thông báo Window.
+			+ Ping: Phương thức này được 2 bên ModuleClient_Unity và ModuleServer dùng để kiểm tra kết nối.
 		
 	3.	ModuleClient_Unity
 		- Cửa sổ có giao diện người dùng
