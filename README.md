@@ -21,22 +21,22 @@ II.	Môi trường phát triển
   
 	1.	Công cụ phát triển
 		- Unity (C#)  
-		+ Trong thư mục Assets\Scripts chứa tất cả mã nguồn c#.   
-		+ Chức năng một số hàm trong Unity sẽ được mô tả trong code.      
-		+ Được sử dụng để xây dựng module client.
+			+ Trong thư mục Assets\Scripts chứa tất cả mã nguồn c#.   
+			+ Chức năng một số hàm trong Unity sẽ được mô tả trong code.      
+			+ Được sử dụng để xây dựng module client.
 
 		- Visual studio (C#)
-		+ Công cụ lập trình quen thuộc của Microsoft.       
-		+ Được sử dụng để xây dựng module server và thư viện rpc. 
+			+ Công cụ lập trình quen thuộc của Microsoft.       
+			+ Được sử dụng để xây dựng module server và thư viện rpc. 
 	2.	Kỹ thuật
 		- TPC
-		+ Là giao thức hướng kết nối.
-		+ Giao thức này đảm bảo chuyển giao dữ liệu tới nơi nhận một cách đáng tin cậy và đúng thứ tự.
+			+ Là giao thức hướng kết nối.
+			+ Giao thức này đảm bảo chuyển giao dữ liệu tới nơi nhận một cách đáng tin cậy và đúng thứ tự.
 		- RPC/RMI
-		+ Các phương thức trong các lớp thực thi interface IMonitor(RpcHandler/RpcHandler/User/IMonitor.cs) sẽ được dùng để thực hiện RPC
+			+ Các phương thức trong các lớp thực thi interface IMonitor(RpcHandler/RpcHandler/User/IMonitor.cs) sẽ được dùng để thực hiện RPC
 		- Reflection
-		+ Kỹ thuật cho phép tạo 1 đối tượng, và gọi bất kỳ phương thước nào thông qua 1 chuỗi xử lý.
-		+ Điều này giúp cho “máy bị giám sát” có thể tạo 1 đối tượng và gọi tới phương thức từ các thông tin (là 1 chuỗi) mà “máy giám sát” yêu cầu.
+			+ Kỹ thuật cho phép tạo 1 đối tượng, và gọi bất kỳ phương thước nào thông qua 1 chuỗi xử lý.
+			+ Điều này giúp cho “máy bị giám sát” có thể tạo 1 đối tượng và gọi tới phương thức từ các thông tin (là 1 chuỗi) mà “máy giám sát” yêu cầu.
 
 III. 	Cài đặt
 
@@ -49,8 +49,8 @@ III. 	Cài đặt
 	b.	Cấu trúc
 		- Được cài đặt giống như kỹ thuật RPC/RMI
 		- Gồm bộ đóng/mở gói:
-		+ Class ClientExport (ClientStub): đóng gói dữ liệu gửi đi
-		+ Class ServerImport (ServerStub): Mở gói dữ liệu đến
+			+ Class ClientExport (ClientStub): đóng gói dữ liệu gửi đi
+			+ Class ServerImport (ServerStub): Mở gói dữ liệu đến
 		- Dữ liệu gửi đi là 1 đối tượng( xem class Request).
 		- Dữ liệu phản hồi cũng là đối tượng ( xem class Response).
 		- Class ServerSocket, ClientSocket là các lớp quản lý kết nối mạng
@@ -64,6 +64,34 @@ III. 	Cài đặt
 		- Project template: Console app(.Net framework)
 	b.	Cấu trúc
 		- Gồm các lớp thực hiện các chức năng chính:
-		+ class UsbHandler: đóng ngắt Usb
-		+ class ClipBoardHandler: đóng ngắt clipboard,...
-		- Class TestServer chứa triển khai của interface IMonitor: Các phương thức được triển khai sẽ thực hiện các chức năng được yêu cầu, và trả về kết quả, kết quả sẽ được đưa vào đối tượng Response, để gửi trả lại bên gọi(Xem ).
+			+ class UsbHandler: đóng ngắt Usb
+			+ class ClipBoardHandler: đóng ngắt clipboard,...
+		- Class TestServer chứa triển khai của interface IMonitor: Các phương thức được triển khai sẽ thực hiện các chức năng được yêu cầu, và trả về kết quả, kết quả sẽ được đưa vào đối tượng Response, để gửi trả lại bên gọi(Xem RpcHandler/Server/ServerImport.Run() ).
+	c.	Cách hoạt động
+		- Đầu tiên cần khởi tạo 1 ServerImport ( Server stub) dùng để mở gói gói tin.
+			+ Để khởi tạo ServerImport chúng ta cần truyền vào 1 namespace (dưới dạng chuỗi) là nơi chứa của lớp thực thi Interface IMonitor(Xem ModuleServer/TestXongXoa/Program.Main() ).
+			+ Việc khởi tạo namespace này sẽ được dùng trong kỹ thuật Reflection (Xem RpcHandler/Server/ServerImport.Run()).
+		- Sau đó cần khởi tạo 1 ServerSocket và tiến hành lắng nghe kết nối từ client.
+		
+	3.	ModuleClient_Unity
+		- Cửa sổ có giao diện người dùng
+		- Sử dụng như Client trên máy giám sát
+	a.	Môi trường cài đặt
+		- Unity 2019.1.11f
+		- Visual studio 2019 (để code)
+	b.	Cấu trúc
+		- Code sẽ được đặt tại ModuleClient_Unity/Assets/Scripts/
+		- Class ClientMonitor Là class được kế thừa từ ClientExport và thực thi interface IMonitor
+			+ Class phương thức thực thi từ IMonitor trong class này sẽ được dùng để gọi RPC (thay vì thực hiện và trả về kết quả như bên ModuleServer).
+		- Class NetworkManager quản lý các thao tác từ yêu cầu người dùng.
+	c.	Cách hoạt động
+		- Khởi tạo:
+			+ Đầu tiên khi chương trình bắt đầu chạy NetworkManager sẽ được yêu cầu khởi tạo( Xem ModuleClient_Unity/Assets/Scripts/UIManager.Start() ).
+			+ Trong quá trình khởi tạo NetworkManager sẽ scan địa chỉ IP của những máy đã cài ứng dụng bên ModuleServer( Xem ModuleClient_Unity/Assets/Scripts/Network/NetworkManager.ScanIP() ) nếu có phản hồi thì sẽ hiển thị kết quả nhận được lên màn hình.
+			+ Lưu ý: trong hàm tạo của ClientMonitor, "TestServer" được mặc định truyền vào - tên này chình là lớp thực thi Interface IMonitor bên ModuleServer, namespace của nó chúng ta cũng đã khởi tạo bên ModuleServer. Class name này sẽ được chúng ta gửi đi, để bên ModuleServer có thể khởi tạo 1 đối tượng dựa vào kỹ thuật Reflection (Xem RpcHandler/RpcHandler/Client/ClientExport.cs).
+		- Hoạt động:
+			+ Trong quá trình hoạt động của chương trình tương ứng với các thao tác của người dùng là các phương thức trong class NetworkManager.
+		- Nhận phản hồi:
+			+ Ứng với mỗi đối tượng gửi đi (Class Request) sẽ có 1 đối tượng được nhận về (Class Response) đối tượng này sẽ được đưa vào hàng đợi để chờ xử lý (Xem RpcHandler/RpcHandler/Client/ClientSocket.BeginConnectCallbackFunc ).
+			+ Phương thức Update trong ModuleClient_Unity/Assets/Scripts/UIManager.cs sẽ được tự động gọi lại sau mỗi frame. Phương thức này sẽ kiểm tra hàng đợi và lấy đối tượng phản hồi ra xử lý.
+			+ Trong quá trình xử lý để phân biệt nó là phản hồi của hành động nào chúng ta dựa vào Response.Phrase - nó sẽ chứa tên của hàm mà chúng ta đã gọi ban đầu.
